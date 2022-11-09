@@ -34,7 +34,7 @@ const app = {
   btnClick: function () {
     
     if (input) {
-      input.onblur = e => {
+      input.oninput = e => {
         link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
       }
     }
