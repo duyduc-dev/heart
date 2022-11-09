@@ -5,7 +5,7 @@ const btn = $('#btn');
 const link = $('.href');
 const input = $('input[name="name"]');
 const text = $('.text');
-const linkHome = $('.link-home');
+const linkHome = $('#link-home');
 
 const optionHeart = [...$$('.option-heart')];
 
@@ -61,10 +61,12 @@ const app = {
   },
 
   linkHomeClick() {
-    linkHome.onclick = e => {
-      e.preventDefault();
-      linkHome.href = this.ENV.production;
-      linkHome.click();
+    if (linkHome) {
+      linkHome.onclick = e => {
+        e.preventDefault();
+        linkHome.href = this.ENV.production;
+        linkHome.click();
+      }
     }
   },
   
