@@ -63,7 +63,6 @@ const app = {
   linkHomeClick() {
     if (linkHome) {
       linkHome.onclick = e => {
-        e.preventDefault();
         linkHome.href = this.ENV.production;
         linkHome.click();
       }
