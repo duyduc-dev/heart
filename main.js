@@ -15,7 +15,7 @@ const getParams = (link = window.location.search) => new Proxy(new URLSearchPara
 
 const app = {
 
-  URL: {
+  ENV: {
     localhost: '',
     production: 'https://duyduc2003.github.io/heart/'
   },
@@ -33,7 +33,7 @@ const app = {
   btnClick : function () {
     if (btn) {
       btn.onclick = e => {
-        link.href = this.URL.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
+        link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
         link.click();
       }
     }
@@ -59,13 +59,22 @@ const app = {
       }
     }
   },
+
+  linkHomeClick() {
+    linkHome.onclick = e => {
+      e.preventDefault();
+      linkHome.href = this.ENV.production;
+      linkHome.click();
+    }
+  },
   
   init() {
     this.btnClick();
     this.renderHeartPage();
     this.optionHeartClick();
+    this.linkHomeClick();
 
-    linkHome.href = this.URL.production
+    
   } 
 }
 
