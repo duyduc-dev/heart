@@ -18,7 +18,7 @@ const app = {
 
   ENV: {
     localhost: '',
-    production: 'https://duyduc2003.github.io/heart/'
+    production: 'https://duyduc2003.github.io/heart'
   },
 
   params: {
@@ -33,8 +33,8 @@ const app = {
   
   btnClick : function () {
     if (btn) {
+      link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
       btn.onclick = e => {
-        link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
         link.click();
       }
     }
@@ -53,7 +53,6 @@ const app = {
         
         o.onclick = e => {
           this.option.current = o.dataset.option;
-          console.log("🚀 ~ file: main.js ~ line 48 ~ optionHeartClick ~ this.option.current", this.option.current)
           optionHeart.forEach(i => i.classList.remove('option-active'))
           o.classList.add('option-active')
         }
@@ -63,8 +62,8 @@ const app = {
 
   linkHomeClick() {
     if (btnLinkHome) {
+      linkHome.href = this.ENV.production == '' && '/' || this.ENV.production;
       btnLinkHome.onclick = e => {
-        linkHome.href = this.ENV.production;
         linkHome.click();
       }
     }
@@ -75,8 +74,6 @@ const app = {
     this.renderHeartPage();
     this.optionHeartClick();
     this.linkHomeClick();
-
-    
   } 
 }
 
