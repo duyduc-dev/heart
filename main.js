@@ -5,6 +5,7 @@ const btn = $('#btn');
 const link = $('.href');
 const input = $('input[name="name"]');
 const text = $('.text');
+const linkHome = $('.link-home');
 
 const optionHeart = [...$$('.option-heart')];
 
@@ -13,6 +14,12 @@ const getParams = (link = window.location.search) => new Proxy(new URLSearchPara
 });
 
 const app = {
+
+  URL: {
+    localhost: '',
+    production: 'https://duyduc2003.github.io/heart/'
+  },
+
   params: {
     name: getParams().name
   },
@@ -26,7 +33,7 @@ const app = {
   btnClick : function () {
     if (btn) {
       btn.onclick = e => {
-        link.href = `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
+        link.href = this.URL.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
         link.click();
       }
     }
@@ -56,7 +63,9 @@ const app = {
   init() {
     this.btnClick();
     this.renderHeartPage();
-    this.optionHeartClick()
+    this.optionHeartClick();
+
+    linkHome.href = this.URL.production
   } 
 }
 
