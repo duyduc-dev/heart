@@ -6,6 +6,7 @@ const link = $('.href');
 const input = $('input[name="name"]');
 const text = $('.text');
 const linkHome = $('#link-home');
+const btnLinkHome = $('#btn-link-home');
 
 const optionHeart = [...$$('.option-heart')];
 
@@ -61,8 +62,8 @@ const app = {
   },
 
   linkHomeClick() {
-    if (linkHome) {
-      linkHome.onclick = e => {
+    if (btnLinkHome) {
+      btnLinkHome.onclick = e => {
         linkHome.href = this.ENV.production;
         linkHome.click();
       }
