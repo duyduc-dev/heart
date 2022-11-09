@@ -3,7 +3,7 @@ const $$ = document.querySelectorAll.bind(document);
 
 const btn = $('#btn');
 const link = $('.href');
-const input = $('input[name="name"]');
+const input = $('.input-name');
 const text = $('.text');
 const linkHome = $('#link-home');
 const btnLinkHome = $('#btn-link-home');
@@ -31,9 +31,15 @@ const app = {
     RED: 'red'
   },
   
-  btnClick : function () {
+  btnClick: function () {
+    
+    if (input) {
+      input.onblur = e => {
+        link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
+      }
+    }
+
     if (btn) {
-      link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
       btn.onclick = e => {
         link.click();
       }
