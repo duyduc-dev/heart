@@ -35,7 +35,7 @@ const app = {
     
     if (input) {
       input.oninput = e => {
-        link.href = this.ENV.production + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
+        link.href = this.ENV.localhost + `/${this.option.current == this.option.PINK ? 'heart-pink' : 'heart'}.html?name=${input.value || 'Duy Duc handsome'}`
       }
     }
 
@@ -68,7 +68,7 @@ const app = {
 
   linkHomeClick() {
     if (btnLinkHome) {
-      linkHome.href = this.ENV.production == '' && '/' || this.ENV.production;
+      linkHome.href = this.ENV.localhost == '' && '/' || this.ENV.production;
       btnLinkHome.onclick = e => {
         linkHome.click();
       }
