@@ -18,7 +18,7 @@ const app = {
 
   ENV: {
     localhost: '',
-    production: 'https://duyduc2003.github.io/heart'
+    production: 'https://duyduc-dev.github.io/heart'
   },
 
   params: {
